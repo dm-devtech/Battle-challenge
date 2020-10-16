@@ -24,12 +24,8 @@ class Battle < Sinatra::Base
   post '/attack' do
     @Player1_name = $Player1.name
     @Player2_name = $Player2.name
-    redirect '/firstturn'
-  end
-
-  get '/firstturn' do
-    @Player1_name = $Player1.name
-    @Player2_name = $Player2.name
+    $Player2.player_attacked
+    @Player2_hp = $Player2.hp
     erb(:attack)
   end
 

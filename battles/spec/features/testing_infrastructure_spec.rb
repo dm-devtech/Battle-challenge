@@ -14,17 +14,25 @@ feature 'Testing form' do
   end
 end
 
-feature 'check player 2 HP' do
-  scenario 'As player 1 I want to see P2 HP to see if Im winning' do
-  sign_in_and_play
-  expect(page).to have_text('Harry HP = 100')
-end
-end
+#feature 'check player 2 HP' do
+  #scenario 'As player 1 I want to see P2 HP to see if Im winning' do
+  #sign_in_and_play
+  #expect(page).to have_content('Harry HP = 100')
+#end
+#end
 
 feature 'Attack button' do
   scenario 'Player1 attacks player2 and gets confirmation' do
   sign_in_and_play
   click_button "Attack"
   expect(page).to have_text('Tom attacks Harry')
+end
+end
+
+feature 'Attack button' do
+  scenario 'Player1 attacks player2 and P2 HP reduced by 10' do
+  sign_in_and_play
+  click_button "Attack"
+  expect(page).to have_text('Harry HP = 90')
 end
 end

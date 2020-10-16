@@ -19,4 +19,16 @@ get '/play' do
   erb(:play)
 end
 
+post '/attack' do
+  @Player1_name = session[:Player1_name]
+  @Player2_name = session[:Player2_name]
+  redirect '/firstturn'
 end
+
+get '/firstturn' do
+  @Player1_name = session[:Player1_name]
+  @Player2_name = session[:Player2_name]
+  erb(:attack)
+end
+
+end 
